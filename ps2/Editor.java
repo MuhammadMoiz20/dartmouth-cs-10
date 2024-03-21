@@ -51,7 +51,15 @@ public class Editor extends JFrame {
       }
     });
 
-    add(canvas);
+    JToolBar bar = new JToolBar();
+    JButton ellipse = new JButton("ellipse"); ellipse.addActionListener(e -> tool = "ellipse"); bar.add(ellipse);
+    JButton rect = new JButton("rect"); rect.addActionListener(e -> tool = "rect"); bar.add(rect);
+    for (Color c : new Color[]{Color.BLUE, Color.RED, Color.GREEN, Color.BLACK}) {
+      JButton b = new JButton(); b.setBackground(c); b.setPreferredSize(new Dimension(24,24));
+      b.addActionListener(e -> color = c); bar.add(b);
+    }
+    add(bar, BorderLayout.NORTH);
+    add(canvas, BorderLayout.CENTER);
   }
 
   public static void main(String[] args) {
