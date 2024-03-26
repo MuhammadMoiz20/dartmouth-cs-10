@@ -26,6 +26,26 @@ public class Huffman {
     return pq.poll();
   }
 
+  public static Map<Character, String> codes(Node root) {
+    Map<Character, String> m = new HashMap<>();
+    if (root == null) return m;
+    if (root.isLeaf()) { m.put(root.ch, "0"); return m; }
+    walk(root, "", m);
+    return m;
+  }
+
+  private static void walk(Node n, String prefix, Map<Character, String> m) {
+    if (n.isLeaf()) { m.put(n.ch, prefix); return; }
+    walk(n.left, prefix + "0", m);
+    walk(n.right, prefix + "1", m);
+  }
+
+  public static String encode(String s, Map<Character, String> codes) {
+    StringBuilder sb = new StringBuilder();
+    for (char c : s.toCharArray()) sb.append(codes.get(c));
+    return sb.toString();
+  }
+
   public static Map<Character, Integer> freqs(String s) {
     Map<Character, Integer> m = new HashMap<>();
     for (char c : s.toCharArray()) m.merge(c, 1, Integer::sum);
