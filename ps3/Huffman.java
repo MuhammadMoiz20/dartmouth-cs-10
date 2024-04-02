@@ -40,6 +40,16 @@ public class Huffman {
     walk(n.right, prefix + "1", m);
   }
 
+  public static String decode(String bits, Node root) {
+    StringBuilder sb = new StringBuilder();
+    Node cur = root;
+    for (char b : bits.toCharArray()) {
+      cur = b == '0' ? cur.left : cur.right;
+      if (cur.isLeaf()) { sb.append(cur.ch); cur = root; }
+    }
+    return sb.toString();
+  }
+
   public static String encode(String s, Map<Character, String> codes) {
     StringBuilder sb = new StringBuilder();
     for (char c : s.toCharArray()) sb.append(codes.get(c));
