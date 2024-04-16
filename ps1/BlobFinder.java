@@ -4,7 +4,7 @@ import java.util.*;
 public class BlobFinder {
   private BufferedImage img;
   private boolean[][] visited;
-  private int threshold = 50;
+  private int threshold = 80;  // bumped up
 
   public BlobFinder(BufferedImage img) {
     this.img = img;
