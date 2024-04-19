@@ -15,6 +15,7 @@ public class Editor extends JFrame {
     setTitle("editor");
     setSize(800, 600);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
+    setLayout(new BorderLayout());
 
     JPanel canvas = new JPanel() {
       public void paintComponent(Graphics g) {
