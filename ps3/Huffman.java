@@ -29,6 +29,7 @@ public class Huffman {
   public static Map<Character, String> codes(Node root) {
     Map<Character, String> m = new HashMap<>();
     if (root == null) return m;
+    // single char file: assign "0" as code
     if (root.isLeaf()) { m.put(root.ch, "0"); return m; }
     walk(root, "", m);
     return m;
