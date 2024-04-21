@@ -27,6 +27,16 @@ public class Editor extends JFrame {
 
     canvas.addMouseListener(new MouseAdapter() {
       public void mousePressed(MouseEvent e) {
+        if (SwingUtilities.isRightMouseButton(e)) {
+          for (int i = shapes.size() - 1; i >= 0; i--) {
+            if (shapes.get(i).contains(e.getX(), e.getY())) {
+              shapes.remove(i);
+              repaint();
+              return;
+            }
+          }
+          return;
+        }
         // find topmost shape under mouse
         for (int i = shapes.size() - 1; i >= 0; i--) {
           if (shapes.get(i).contains(e.getX(), e.getY())) {
