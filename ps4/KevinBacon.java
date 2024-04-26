@@ -12,7 +12,7 @@ public class KevinBacon {
 
     Graph<String, Integer> tree = GraphLib.bfs(g, "Kevin Bacon");
     String target = args.length > 0 ? args[0] : "Robin Wright";
-    List<String> p = GraphLib.path(tree, "Kevin Bacon", target);
+    List<String> p = GraphLib.pathFromTree(tree, "Kevin Bacon", target);
     System.out.println(target + " has bacon number " + ((p.size() - 1) / 2));
     System.out.println("path: " + p);
   }
