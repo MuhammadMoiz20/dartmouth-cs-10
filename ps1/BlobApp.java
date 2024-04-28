@@ -22,7 +22,7 @@ public class BlobApp extends JFrame {
     g.drawImage(img, 0, 0, null);
     g.setColor(Color.RED);
     for (List<int[]> blob : blobs) {
-      for (int[] p : blob) g.fillRect(p[0], p[1], 1, 1);
+      for (int[] p : blob) g.fillRect(p[0], p[1], 2, 2);  // 2x to see them
     }
   }
 
